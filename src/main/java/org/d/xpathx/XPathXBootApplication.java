@@ -4,7 +4,7 @@ package org.d.xpathx;
  * Hello world!
  *
  */
-public class App 
+public class XPathXBootApplication
 {
     public static void main( String[] args )
     {
