@@ -18,6 +18,7 @@ import javax.xml.xpath.XPathFactory;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
+import java.util.Properties;
 
 /**
  *
@@ -29,6 +30,7 @@ public class ZPathParser {
     private XPath xpath;
     private Document document;
     private Boolean validation;
+    private Properties variables;
     public ZPathParser() {
         commonConstructor(false);
     }
@@ -41,6 +43,12 @@ public class ZPathParser {
         commonConstructor(false);
         this.document = createDocument(new InputSource(inputStream));
     }
+
+    public ZPathParser(InputStream inputStream,Properties variables) {
+        this(inputStream);
+        this.variables = variables;
+    }
+
     public ZPathParser(Reader reader){
         commonConstructor(false);
         this.document = createDocument(new InputSource(reader));
@@ -95,7 +103,7 @@ public class ZPathParser {
             if (node == null){
                 return null;
             }
-            return new DNode(this,node);
+            return new DNode(this,node,variables);
         }
         catch (XPathExpressionException e){
             e.printStackTrace();
@@ -103,16 +111,16 @@ public class ZPathParser {
         return null;
     }
 
-    public DNode evalNode(Node node,String expression) throws Exception {
+    public DNode evalNode(Node nde,String expression) throws Exception {
         try {
-            if (node == null){
+            if (nde == null){
                 throw new Exception();
             }
-            Node node0= (Node) xpath.evaluate(expression,node, XPathConstants.NODE);
-            if (node0 == null){
+            Node node= (Node) xpath.evaluate(expression,nde, XPathConstants.NODE);
+            if (node == null){
                 return null;
             }
-            return new DNode(this, node0);
+            return new DNode(this, node,variables);
         }
         catch (XPathExpressionException e){
             e.printStackTrace();
