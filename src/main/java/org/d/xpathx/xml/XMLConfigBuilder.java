@@ -3,7 +3,6 @@ package org.d.xpathx.xml;
 import org.d.xpathx.data.Configuration;
 import org.d.xpathx.data.XNode;
 import org.d.xpathx.parse.XPathParser;
-import org.xml.sax.InputSource;
 
 import java.io.InputStream;
 import java.io.Reader;
