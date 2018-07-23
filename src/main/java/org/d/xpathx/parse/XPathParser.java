@@ -1,6 +1,6 @@
 package org.d.xpathx.parse;
 
-import org.d.xpathx.data.DNode;
+import org.d.xpathx.data.XNode;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.ErrorHandler;
@@ -26,30 +26,30 @@ import java.util.Properties;
  * @author xh.d
  * @since 2018/7/20 10:30
  */
-public class ZPathParser {
+public class XPathParser {
     private XPath xpath;
     private Document document;
     private Boolean validation;
     private Properties variables;
-    public ZPathParser() {
+    public XPathParser() {
         commonConstructor(false);
     }
 
-    public ZPathParser(XPath xpath) {
+    public XPathParser(XPath xpath) {
         this.xpath = xpath;
     }
 
-    public ZPathParser(InputStream inputStream){
+    public XPathParser(InputStream inputStream){
         commonConstructor(false);
         this.document = createDocument(new InputSource(inputStream));
     }
 
-    public ZPathParser(InputStream inputStream,Properties variables) {
+    public XPathParser(InputStream inputStream, Properties variables) {
         this(inputStream);
         this.variables = variables;
     }
 
-    public ZPathParser(Reader reader){
+    public XPathParser(Reader reader){
         commonConstructor(false);
         this.document = createDocument(new InputSource(reader));
     }
@@ -97,13 +97,13 @@ public class ZPathParser {
         xpath = factory.newXPath();
     }
 
-    public DNode evalNode(String expression) {
+    public XNode evalNode(String expression) {
         try {
             Node node = (Node) xpath.evaluate(expression,document, XPathConstants.NODE);
             if (node == null){
                 return null;
             }
-            return new DNode(this,node,variables);
+            return new XNode(this,node,variables);
         }
         catch (XPathExpressionException e){
             e.printStackTrace();
@@ -111,7 +111,7 @@ public class ZPathParser {
         return null;
     }
 
-    public DNode evalNode(Node nde,String expression) throws Exception {
+    public XNode evalNode(Node nde, String expression) throws Exception {
         try {
             if (nde == null){
                 throw new Exception();
@@ -120,7 +120,7 @@ public class ZPathParser {
             if (node == null){
                 return null;
             }
-            return new DNode(this, node,variables);
+            return new XNode(this, node,variables);
         }
         catch (XPathExpressionException e){
             e.printStackTrace();

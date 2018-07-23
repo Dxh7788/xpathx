@@ -1,7 +1,7 @@
 package org.d.xpathx;
 
-import org.d.xpathx.data.DNode;
-import org.d.xpathx.parse.ZPathParser;
+import org.d.xpathx.data.XNode;
+import org.d.xpathx.parse.XPathParser;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -21,29 +21,16 @@ public class DPathXBootApplicationX
         //首先加载xml文件
         ClassLoader loader = application.getClass().getClassLoader();
         InputStream inputStream = loader.getResourceAsStream("rules/definer.xml");
-        InputStream input = loader.getResourceAsStream("rules/val.properties");
+        InputStream input = loader.getResourceAsStream("rules/application.properties");
         Properties props = new Properties();
         props.load(input);
-        ZPathParser parser = new ZPathParser(inputStream,props);
+        XPathParser parser = new XPathParser(inputStream,props);
         //开始xpath
-        DNode node = parser.evalNode("/bookstore");
-        DNode node2 = node.evalNode("book");
-        NodeList nodeList = node2.getNode().getChildNodes();
-        if (nodeList != null){
-            for (int i=0;i<nodeList.getLength();i++){
-                Node iNode = nodeList.item(i);
-                if (iNode.getNodeType() == Node.ELEMENT_NODE){
-                    System.out.println("[key:"+iNode.getNodeName()+",value:"+iNode.getTextContent()+"]");
-                    NamedNodeMap map = iNode.getAttributes();
-                    for (int j=0;j<map.getLength();j++){
-                        Node attrNode = map.item(j);
-                        String name = attrNode.getNodeName();
-                        String value = attrNode.getTextContent();
-                        System.out.println("  [key:"+name+",value:"+value+"]");
-                    }
-                }
-            }
-        }
+        XNode node = parser.evalNode("/bookstore");
+        XNode node2 = node.evalNode("book");
+        XNode attrNode = node2.evalNode("title");
+        String encode = attrNode.getStringAttribute("lang");
+        System.out.println(encode);
     }
 
     private static void checkFactoryAttributes(DocumentBuilderFactory factory) {

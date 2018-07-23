@@ -1,16 +1,12 @@
 package org.d.xpathx;
 
-import org.d.xpathx.data.DNode;
-import org.d.xpathx.parse.ZPathParser;
-import org.w3c.dom.Document;
+import org.d.xpathx.data.XNode;
+import org.d.xpathx.parse.XPathParser;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathFactory;
 import java.io.InputStream;
 
 /**
@@ -24,10 +20,10 @@ public class DPathXBootApplication
         //首先加载xml文件
         ClassLoader loader = application.getClass().getClassLoader();
         InputStream inputStream = loader.getResourceAsStream("rules/definer.xml");
-        ZPathParser parser = new ZPathParser(inputStream);
+        XPathParser parser = new XPathParser(inputStream);
         //开始xpath
-        DNode node = parser.evalNode("/bookstore");
-        DNode node2 = node.evalNode("book");
+        XNode node = parser.evalNode("/bookstore");
+        XNode node2 = node.evalNode("book");
         NodeList nodeList = node2.getNode().getChildNodes();
         if (nodeList != null){
             for (int i=0;i<nodeList.getLength();i++){
