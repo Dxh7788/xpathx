@@ -1,8 +1,8 @@
-package org.d.xpathx.xml;
+package org.diro.mybatis.xml;
 
-import org.d.xpathx.data.Configuration;
-import org.d.xpathx.data.XNode;
-import org.d.xpathx.parse.XPathParser;
+import org.diro.mybatis.data.Configuration;
+import org.diro.mybatis.data.XNode;
+import org.diro.mybatis.parse.XPathParser;
 
 import java.io.InputStream;
 import java.io.Reader;

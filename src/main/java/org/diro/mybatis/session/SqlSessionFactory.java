@@ -1,6 +1,6 @@
-package org.d.xpathx.session;
+package org.diro.mybatis.session;
 
-import org.d.xpathx.data.Configuration;
+import org.diro.mybatis.data.Configuration;
 
 /**
  * Copyright (C) 2017-2018 https://www.htouhui.com - A project by xpathx

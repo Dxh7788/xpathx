@@ -1,6 +1,6 @@
-package org.d.xpathx.xml;
+package org.diro.mybatis.xml;
 
-import org.d.xpathx.data.Configuration;
+import org.diro.mybatis.data.Configuration;
 
 /**
  *

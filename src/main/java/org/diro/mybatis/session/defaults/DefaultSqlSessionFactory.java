@@ -1,9 +1,9 @@
-package org.d.xpathx.session.defaults;
+package org.diro.mybatis.session.defaults;
 
-import org.d.xpathx.data.Configuration;
-import org.d.xpathx.session.DefaultSqlSession;
-import org.d.xpathx.session.SqlSession;
-import org.d.xpathx.session.SqlSessionFactory;
+import org.diro.mybatis.data.Configuration;
+import org.diro.mybatis.session.DefaultSqlSession;
+import org.diro.mybatis.session.SqlSession;
+import org.diro.mybatis.session.SqlSessionFactory;
 
 /**
  * Copyright (C) 2017-2018 https://www.htouhui.com - A project by xpathx

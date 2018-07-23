@@ -1,4 +1,4 @@
-package org.d.xpathx.data;
+package org.diro.mybatis.data;
 
 /**
  *

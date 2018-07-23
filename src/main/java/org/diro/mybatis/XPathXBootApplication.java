@@ -1,4 +1,4 @@
-package org.d.xpathx;
+package org.diro.mybatis;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;

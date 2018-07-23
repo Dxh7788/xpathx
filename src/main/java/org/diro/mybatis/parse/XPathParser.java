@@ -1,6 +1,6 @@
-package org.d.xpathx.parse;
+package org.diro.mybatis.parse;
 
-import org.d.xpathx.data.XNode;
+import org.diro.mybatis.data.XNode;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.ErrorHandler;

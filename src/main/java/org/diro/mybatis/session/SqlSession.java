@@ -1,4 +1,4 @@
-package org.d.xpathx.session;
+package org.diro.mybatis.session;
 
 import java.util.List;
 

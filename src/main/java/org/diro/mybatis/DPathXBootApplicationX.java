@@ -1,10 +1,10 @@
-package org.d.xpathx;
+package org.diro.mybatis;
 
-import org.d.xpathx.data.XNode;
-import org.d.xpathx.parse.XPathParser;
-import org.d.xpathx.session.SqlSession;
-import org.d.xpathx.session.SqlSessionFactory;
-import org.d.xpathx.session.SqlSessionFactoryBuilder;
+import org.diro.mybatis.data.XNode;
+import org.diro.mybatis.parse.XPathParser;
+import org.diro.mybatis.session.SqlSession;
+import org.diro.mybatis.session.SqlSessionFactory;
+import org.diro.mybatis.session.SqlSessionFactoryBuilder;
 
 import java.io.InputStream;
 import java.util.List;

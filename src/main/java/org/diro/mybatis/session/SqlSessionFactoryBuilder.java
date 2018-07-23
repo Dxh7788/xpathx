@@ -1,8 +1,8 @@
-package org.d.xpathx.session;
+package org.diro.mybatis.session;
 
-import org.d.xpathx.data.Configuration;
-import org.d.xpathx.session.defaults.DefaultSqlSessionFactory;
-import org.d.xpathx.xml.XMLConfigBuilder;
+import org.diro.mybatis.data.Configuration;
+import org.diro.mybatis.session.defaults.DefaultSqlSessionFactory;
+import org.diro.mybatis.xml.XMLConfigBuilder;
 
 import java.io.InputStream;
 
