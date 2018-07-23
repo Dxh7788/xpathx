@@ -52,9 +52,8 @@ public class XNode {
     }
 
     private String parseBody(Node child) {
-        if (child.getNodeType() == Node.CDATA_SECTION_NODE
-                || child.getNodeType() == Node.TEXT_NODE) {
-            String data = ((CharacterData) child).getData();
+        if (child.getNodeType() == Node.ELEMENT_NODE) {
+            String data = child.getTextContent();
             return data;
         }
         return null;
@@ -74,7 +73,7 @@ public class XNode {
         }
         return Boolean.valueOf(false);
     }
-    public Integer getIntegergAttribute(String name){
+    public Integer getIntegerAttribute(String name){
         if (attributes!=null){
             String value = attributes.getProperty(name);
             if (null !=value){
@@ -89,6 +88,16 @@ public class XNode {
             if (null !=value){
                 return Double.valueOf(value);
             }
+        }
+        return null;
+    }
+
+    public String getStringBody(String def){
+        if (body !=null){
+            return body;
+        }
+        if (def !=null){
+            return def;
         }
         return null;
     }
