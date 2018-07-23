@@ -1,12 +1,13 @@
 package org.d.xpathx;
 
-import org.d.xpathx.data.Configuration;
 import org.d.xpathx.data.XNode;
 import org.d.xpathx.parse.XPathParser;
-import org.d.xpathx.xml.XMLConfigBuilder;
+import org.d.xpathx.session.SqlSession;
+import org.d.xpathx.session.SqlSessionFactory;
+import org.d.xpathx.session.SqlSessionFactoryBuilder;
 
-import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.InputStream;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -23,9 +24,10 @@ public class DPathXBootApplicationX
     private static void day20180723() {
         ClassLoader loader = Thread.currentThread().getContextClassLoader();
         InputStream input = loader.getResourceAsStream("rules/definer.xml");
-        XMLConfigBuilder builder =new XMLConfigBuilder(input);
-        Configuration configuration = builder.parse();
-        System.out.println(configuration.toString());
+        SqlSessionFactory factory = SqlSessionFactoryBuilder.build(input);
+        SqlSession session = factory.openSession();
+        List list = session.selectOne();
+        System.out.println(list);
     }
 
     private static void day20180720() throws Exception {
