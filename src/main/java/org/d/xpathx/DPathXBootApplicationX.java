@@ -44,13 +44,4 @@ public class DPathXBootApplicationX
         String encode = attrNode.getStringAttribute("lang");
         System.out.println(encode);
     }
-
-    private static void checkFactoryAttributes(DocumentBuilderFactory factory) {
-        factory.setValidating(false);
-        factory.setNamespaceAware(false);
-        factory.setIgnoringComments(true);
-        factory.setIgnoringElementContentWhitespace(false);
-        factory.setCoalescing(false);
-        factory.setExpandEntityReferences(true);
-    }
 }
