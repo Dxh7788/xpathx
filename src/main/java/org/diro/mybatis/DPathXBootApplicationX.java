@@ -24,7 +24,7 @@ public class DPathXBootApplicationX
     private static void day20180723() {
         ClassLoader loader = Thread.currentThread().getContextClassLoader();
         InputStream input = loader.getResourceAsStream("rules/definer.xml");
-        SqlSessionFactory factory = SqlSessionFactoryBuilder.build(input);
+        SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(input);
         SqlSession session = factory.openSession();
         List list = session.selectOne();
         System.out.println(list);

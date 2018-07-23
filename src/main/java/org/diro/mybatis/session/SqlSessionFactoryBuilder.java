@@ -14,12 +14,12 @@ import java.io.InputStream;
  */
 public class SqlSessionFactoryBuilder {
 
-    public static SqlSessionFactory build(InputStream inputStream) {
+    public SqlSessionFactory build(InputStream inputStream) {
         XMLConfigBuilder parser = new XMLConfigBuilder(inputStream);
         return doBuild(parser.parse());
     }
 
-    private static SqlSessionFactory doBuild(Configuration config) {
+    private SqlSessionFactory doBuild(Configuration config) {
         return new DefaultSqlSessionFactory(config);
     }
 }
