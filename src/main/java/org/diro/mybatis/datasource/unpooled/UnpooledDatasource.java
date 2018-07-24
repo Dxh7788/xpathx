@@ -19,6 +19,10 @@ public class UnpooledDatasource implements javax.sql.DataSource {
     private String username;
     private String password;
 
+    public UnpooledDatasource() {
+    }
+
+
     public UnpooledDatasource(String driver, String url, String username, String password) {
         this.driver = driver;
         this.url = url;

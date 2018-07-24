@@ -1,5 +1,7 @@
 package org.diro.mybatis.data;
 
+import org.diro.mybatis.mapper.Environment;
+
 /**
  *
  * @author xh.d
@@ -10,6 +12,7 @@ public class Configuration {
     private String author;
     private Integer year;
     private Double price;
+    private Environment environment;
 
     public String getEncode() {
         return encode;
@@ -51,5 +54,13 @@ public class Configuration {
                 ", year=" + year +
                 ", price=" + price +
                 '}';
+    }
+
+    public void setEnvironment(Environment environment) {
+        this.environment = environment;
+    }
+
+    public Environment getEnvironment() {
+        return environment;
     }
 }

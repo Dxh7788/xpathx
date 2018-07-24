@@ -5,6 +5,7 @@ import org.diro.mybatis.data.Configuration;
 import org.diro.mybatis.data.XNode;
 import org.diro.mybatis.datasource.DatasourceFactory;
 import org.diro.mybatis.datasource.unpooled.UnpooledDatasourceFactory;
+import org.diro.mybatis.mapper.Environment;
 import org.diro.mybatis.parse.XPathParser;
 import org.diro.mybatis.transaction.TransactionFactory;
 import org.diro.mybatis.transaction.jdbc.JdbcTransactionFactory;
@@ -64,9 +65,10 @@ public class XMLConfigBuilder extends BaseBuilder {
                 TransactionFactory txFactory = transactionManagerElement(xNode.evalNode("transactionManager"));
                 DatasourceFactory dsFactory = datasourceManagerElement(xNode.evalNode("datasource"));
                 //解析数据库配置
+                Environment.Builder builder = new Environment.Builder().datasourceFactory(dsFactory).transactionFactory(txFactory).id(id);
+                configuration.setEnvironment(builder.build());
             }
         }
-        configuration.setEncode(environment);
     }
 
     private DatasourceFactory datasourceManagerElement(XNode context) {
