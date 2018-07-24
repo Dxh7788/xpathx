@@ -1,5 +1,6 @@
 package org.diro.mybatis.parse;
 
+import org.diro.mybatis.builder.xml.XMLMapperEntityResovler;
 import org.diro.mybatis.data.XNode;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -57,9 +58,11 @@ public class XPathParser {
     private Document createDocument(InputSource source) {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         factory.setValidating(validation);
-        DocumentBuilder builder = null;
+        DocumentBuilder builder;
         try {
             builder = factory.newDocumentBuilder();
+            //加入Mybatis的DTD约束
+            builder.setEntityResolver(new XMLMapperEntityResovler());
             Document document = builder.parse(source);
             //暂未设置实体解析器 builder.setEntityResolver(null);
             builder.setErrorHandler(new ErrorHandler() {

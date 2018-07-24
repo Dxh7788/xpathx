@@ -1,4 +1,4 @@
-package org.diro.mybatis.xml;
+package org.diro.mybatis.builder;
 
 import org.diro.mybatis.data.Configuration;
 

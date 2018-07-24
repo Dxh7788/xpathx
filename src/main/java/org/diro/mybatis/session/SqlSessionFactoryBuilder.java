@@ -1,8 +1,8 @@
 package org.diro.mybatis.session;
 
+import org.diro.mybatis.builder.xml.XMLConfigBuilder;
 import org.diro.mybatis.data.Configuration;
 import org.diro.mybatis.session.defaults.DefaultSqlSessionFactory;
-import org.diro.mybatis.xml.XMLConfigBuilder;
 
 import java.io.InputStream;
 

@@ -1,4 +1,4 @@
-package org.diro.mybatis;
+package org.diro.mybatis.main;
 
 import org.diro.mybatis.data.XNode;
 import org.diro.mybatis.parse.XPathParser;

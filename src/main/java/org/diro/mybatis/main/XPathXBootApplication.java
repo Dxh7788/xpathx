@@ -1,4 +1,4 @@
-package org.diro.mybatis;
+package org.diro.mybatis.main;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;

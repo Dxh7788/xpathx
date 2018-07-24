@@ -1,18 +1,14 @@
-package org.diro.mybatis;
+package org.diro.mybatis.main;
 
-import org.diro.mybatis.data.XNode;
-import org.diro.mybatis.parse.XPathParser;
 import org.diro.mybatis.session.SqlSession;
 import org.diro.mybatis.session.SqlSessionFactory;
 import org.diro.mybatis.session.SqlSessionFactoryBuilder;
 
 import java.io.InputStream;
 import java.util.List;
-import java.util.Properties;
 
 /**
  * Hello world!
- *
  */
 public class DPathXBootApplicationX
 {
@@ -30,7 +26,7 @@ public class DPathXBootApplicationX
         System.out.println(list);
     }
 
-    private static void day20180720() throws Exception {
+    /*private static void day20180720() throws Exception {
         DPathXBootApplicationX application = new DPathXBootApplicationX();
         //首先加载xml文件
         ClassLoader loader = application.getClass().getClassLoader();
@@ -45,5 +41,5 @@ public class DPathXBootApplicationX
         XNode attrNode = node2.evalNode("title");
         String encode = attrNode.getStringAttribute("lang");
         System.out.println(encode);
-    }
+    }*/
 }

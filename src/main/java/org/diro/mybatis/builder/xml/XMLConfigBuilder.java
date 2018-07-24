@@ -1,5 +1,6 @@
-package org.diro.mybatis.xml;
+package org.diro.mybatis.builder.xml;
 
+import org.diro.mybatis.builder.BaseBuilder;
 import org.diro.mybatis.data.Configuration;
 import org.diro.mybatis.data.XNode;
 import org.diro.mybatis.parse.XPathParser;
