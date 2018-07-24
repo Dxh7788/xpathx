@@ -19,7 +19,7 @@ public class DPathXBootApplicationX
 
     private static void day20180723() {
         ClassLoader loader = Thread.currentThread().getContextClassLoader();
-        InputStream input = loader.getResourceAsStream("rules/definer.xml");
+        InputStream input = loader.getResourceAsStream("config/mybatisConfig.xml");
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(input);
         SqlSession session = factory.openSession();
         List list = session.selectOne();
@@ -30,8 +30,8 @@ public class DPathXBootApplicationX
         DPathXBootApplicationX application = new DPathXBootApplicationX();
         //首先加载xml文件
         ClassLoader loader = application.getClass().getClassLoader();
-        InputStream inputStream = loader.getResourceAsStream("rules/definer.xml");
-        InputStream input = loader.getResourceAsStream("rules/application.properties");
+        InputStream inputStream = loader.getResourceAsStream("config/mybatisConfig.xml");
+        InputStream input = loader.getResourceAsStream("config/application.properties");
         Properties props = new Properties();
         props.load(input);
         XPathParser parser = new XPathParser(inputStream,props);

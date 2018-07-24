@@ -19,7 +19,7 @@ public class DPathXBootApplication
         DPathXBootApplication application = new DPathXBootApplication();
         //首先加载xml文件
         ClassLoader loader = application.getClass().getClassLoader();
-        InputStream inputStream = loader.getResourceAsStream("rules/definer.xml");
+        InputStream inputStream = loader.getResourceAsStream("config/definer.xml");
         XPathParser parser = new XPathParser(inputStream);
         //开始xpath
         XNode node = parser.evalNode("/bookstore");

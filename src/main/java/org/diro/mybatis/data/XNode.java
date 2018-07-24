@@ -3,7 +3,10 @@ package org.diro.mybatis.data;
 import org.diro.mybatis.parse.XPathParser;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -99,5 +102,31 @@ public class XNode {
             return def;
         }
         return null;
+    }
+
+    public List<XNode> evalNodes(String expression) {
+        return parser.evalNodes(node, expression);
+    }
+
+    public List<XNode> getChildren() {
+        List<XNode> xNodes = new ArrayList<XNode>(0);
+        NodeList nodeList = node.getChildNodes();
+        for (int i = 0; i < nodeList.getLength(); i++) {
+            Node node = nodeList.item(i);
+            if (node.getNodeType() == Node.ELEMENT_NODE) {
+                xNodes.add(new XNode(parser, node));
+            }
+        }
+        return xNodes;
+    }
+
+    public Properties getChildrenAsProperties() {
+        Properties properties = new Properties();
+        for (XNode xNode : getChildren()) {
+            String name = xNode.getStringAttribute("name");
+            String value = xNode.getStringAttribute("value");
+            properties.setProperty(name, value);
+        }
+        return properties;
     }
 }

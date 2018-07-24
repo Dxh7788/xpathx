@@ -4,6 +4,7 @@ import org.diro.mybatis.builder.xml.XMLMapperEntityResovler;
 import org.diro.mybatis.data.XNode;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -19,6 +20,8 @@ import javax.xml.xpath.XPathFactory;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -129,6 +132,20 @@ public class XPathParser {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public List<XNode> evalNodes(Node node, String expression) {
+        List<XNode> xNodes = new ArrayList<>(0);
+        try {
+            NodeList nodes = (NodeList) xpath.evaluate(expression, node, XPathConstants.NODESET);
+            for (int i = 0; i < nodes.getLength(); i++) {
+                Node node0 = nodes.item(i);
+                xNodes.add(new XNode(this, node0));
+            }
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        }
+        return xNodes;
     }
     /*
     * 应当使用XPath进行的解析都使用ZPathParser进行解析

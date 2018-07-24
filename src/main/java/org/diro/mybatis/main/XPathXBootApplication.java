@@ -23,7 +23,7 @@ public class XPathXBootApplication
         XPathXBootApplication application = new XPathXBootApplication();
         //首先加载xml文件
         ClassLoader loader = application.getClass().getClassLoader();
-        InputStream inputStream = loader.getResourceAsStream("rules/definer.xml");
+        InputStream inputStream = loader.getResourceAsStream("config/definer.xml");
         InputSource reader = new InputSource(inputStream);
         //准备,仅仅是标准的 JAXP 和 DOM，没有什么新鲜的
         DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
