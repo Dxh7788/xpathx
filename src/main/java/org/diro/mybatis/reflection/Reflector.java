@@ -30,8 +30,8 @@ public class Reflector {
         this.type = type;
         //根据type解析出来可读属性,可写属性,set方法集和get方法集
         addDefaultConstructor(type);
-        addSetMethods(type);
         addGetMethods(type);
+        addSetMethods(type);
         addFields(type);
         readablePropertyNames = getMethods.keySet().toArray(new String[getMethods.keySet().size()]);
         writeablePropertyNames = setMethods.keySet().toArray(new String[setMethods.keySet().size()]);
@@ -58,7 +58,7 @@ public class Reflector {
     * 暂不支持泛型参数和泛型数组
     * */
     private void addSetMethods(Class<?> type) {
-        Method[] methods = type.getClass().getMethods();//找到所有的set方法
+        Method[] methods = type.getDeclaredMethods();//找到所有的set方法
         for (Method method : methods) {
             //如果参数超过1个,不添加
             if (method.getParameterTypes().length > 1) {
@@ -81,7 +81,7 @@ public class Reflector {
     * 暂不支持泛型和泛型数组
     * */
     private void addGetMethods(Class<?> type) {
-        Method[] methods = type.getClass().getMethods();//找到所有的set方法
+        Method[] methods = type.getDeclaredMethods();//找到所有的set方法
         for (Method method : methods) {
             if (method.getParameterTypes().length > 0) {//不能有参数
                 continue;

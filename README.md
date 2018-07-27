@@ -5,6 +5,10 @@
  1.MetaObject主要用来为setter方法或者属性赋值.支持xxx.xxx.name这样的赋值方式.最后会为name属性或者为setName方法赋值.
  MetaObject对应三个Factory,分别是:
  (1)ObjectFactory
+ ObjectFactory用于当没有实例的时候创建实例.从0到1
  (2)ObjectWrapperFactory
+    objectWrapperFactory用于在有实例的时候为实例赋值.使的属性值被填充.
+    objectWrapperFactory,可以用来扩展,来实现自己的实例生产工厂.系统默认为DefaultObjectWrapperFactory.暂时不提供什么功能.如果要实现自己的实例生成工厂类,继承ObjectWrapperFactory
  (3)ReflectorFactory
+    用来生成Reflector,生成
  接下来会一一来解析这三个Factory的用途,ReflectorFactory会返回一个Reflector,Reflector保存了类的getter和setter以及属性.
