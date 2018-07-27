@@ -67,9 +67,11 @@ public class Reflector {
             String name = method.getName();
             if (null != name && name.startsWith("set")) {
                 name = methodToProperty(name);
-                setMethods.put(name, new MethodInvoker(method));//加入Map缓存
-                Class<?> returnType = method.getParameterTypes()[0];
-                setTypes.put(name, returnType);
+                if (method.isAccessible()) {
+                    setMethods.put(name, new MethodInvoker(method));//加入Map缓存
+                    Class<?> returnType = method.getParameterTypes()[0];
+                    setTypes.put(name, returnType);
+                }
             }
         }
     }
@@ -78,7 +80,7 @@ public class Reflector {
     * 暂不支持泛型和泛型数组
     * */
     private void addGetMethods(Class<?> type) {
-        Method[] methods = type.getClass().getDeclaredMethods();//找到所有的set方法
+        Method[] methods = type.getClass().getMethods();//找到所有的set方法
         for (Method method : methods) {
             if (method.getParameterTypes().length > 0) {//不能有参数
                 continue;
@@ -87,9 +89,11 @@ public class Reflector {
             if ((name.startsWith("get") && name.length() > 3) ||
                     (name.startsWith("is") && name.length() > 2)) {
                 name = methodToProperty(name);
-                getMethods.put(name, new MethodInvoker(method));//加入Map缓存
-                Class<?> returnType = method.getReturnType();
-                getTypes.put(name, returnType);
+                if (method.isAccessible()) {
+                    getMethods.put(name, new MethodInvoker(method));//加入Map缓存
+                    Class<?> returnType = method.getReturnType();
+                    getTypes.put(name, returnType);
+                }
             }
         }
     }
