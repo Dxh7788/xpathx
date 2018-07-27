@@ -15,11 +15,10 @@ public class RefactoryTest {
 
     public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
         ReflectorFactory factory = new DefaultReflectorFactory();
-        User u = new User();
+        User u = new User();//这一步的替换要使用ObjectFactory
         MetaClass metaClass = MetaClass.forClass(u.getClass(), factory);
         Invoker invoker = metaClass.getSetInvoker("name");
-        Object o = new String("5566");
-        Object[] os = {o};
+        Object[] os = {"000"};
         invoker.invoke(u, os);
         System.out.println(u.getName());
     }
