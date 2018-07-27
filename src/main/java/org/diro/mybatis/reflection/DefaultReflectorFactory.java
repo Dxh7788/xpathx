@@ -26,7 +26,7 @@ public class DefaultReflectorFactory implements ReflectorFactory {
 
     @Override
     public Reflector findForClass(Class<?> type) {
-        if (classCacheEnabled) {
+        /*if (classCacheEnabled) {
             // synchronized (type) removed see issue #461
             Reflector cached = reflectorMap.get(type);
             if (cached == null) {
@@ -34,8 +34,8 @@ public class DefaultReflectorFactory implements ReflectorFactory {
                 reflectorMap.put(type, cached);
             }
             return cached;
-        } else {
+        } else {*/
             return new Reflector(type);
-        }
+//        }
     }
 }

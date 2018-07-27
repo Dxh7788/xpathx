@@ -58,7 +58,7 @@ public class Reflector {
     * 暂不支持泛型参数和泛型数组
     * */
     private void addSetMethods(Class<?> type) {
-        Method[] methods = type.getClass().getDeclaredMethods();//找到所有的set方法
+        Method[] methods = type.getClass().getMethods();//找到所有的set方法
         for (Method method : methods) {
             //如果参数超过1个,不添加
             if (method.getParameterTypes().length > 1) {
@@ -67,6 +67,7 @@ public class Reflector {
             String name = method.getName();
             if (null != name && name.startsWith("set")) {
                 name = methodToProperty(name);
+                method.setAccessible(true);
                 if (method.isAccessible()) {
                     setMethods.put(name, new MethodInvoker(method));//加入Map缓存
                     Class<?> returnType = method.getParameterTypes()[0];
@@ -89,6 +90,7 @@ public class Reflector {
             if ((name.startsWith("get") && name.length() > 3) ||
                     (name.startsWith("is") && name.length() > 2)) {
                 name = methodToProperty(name);
+                method.setAccessible(true);
                 if (method.isAccessible()) {
                     getMethods.put(name, new MethodInvoker(method));//加入Map缓存
                     Class<?> returnType = method.getReturnType();
@@ -102,6 +104,7 @@ public class Reflector {
     private void addFields(Class<?> type) {
         Field[] fields = type.getDeclaredFields();
         for (Field field : fields) {
+            field.setAccessible(true);
             String name = field.getName();
             if (!setMethods.containsKey(name)) {
                 setMethods.put(name, new SetFieldInvoker(field));
@@ -128,5 +131,9 @@ public class Reflector {
             name = name.substring(0, 1).toLowerCase(Locale.ENGLISH) + name.substring(1);
         }
         return name;
+    }
+
+    public Invoker getSetInvoker(String name) {
+        return setMethods.get(name);
     }
 }
