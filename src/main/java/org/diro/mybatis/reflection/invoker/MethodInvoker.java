@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
 public class MethodInvoker implements Invoker {
     private Method method;
 
-    public void setMethod(Method method) {
+    public MethodInvoker(Method method) {
         this.method = method;
     }
 

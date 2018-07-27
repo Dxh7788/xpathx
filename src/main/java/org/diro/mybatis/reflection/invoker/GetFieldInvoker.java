@@ -12,7 +12,7 @@ import java.lang.reflect.InvocationTargetException;
 public class GetFieldInvoker implements Invoker {
     private Field field;
 
-    public void setField(Field field) {
+    public GetFieldInvoker(Field field) {
         this.field = field;
     }
 
