@@ -9,6 +9,19 @@
  (2)ObjectWrapperFactory
     objectWrapperFactory用于在有实例的时候为实例赋值.使的属性值被填充.
     objectWrapperFactory,可以用来扩展,来实现自己的实例生产工厂.系统默认为DefaultObjectWrapperFactory.暂时不提供什么功能.如果要实现自己的实例生成工厂类,继承ObjectWrapperFactory
+    ObjectWrapperFactory可以用来生成自定义的ObjectWrapper.
  (3)ReflectorFactory
     用来生成Reflector,生成
  接下来会一一来解析这三个Factory的用途,ReflectorFactory会返回一个Reflector,Reflector保存了类的getter和setter以及属性.
+ 
+ MetaObject
+           _| ObjectFactory //对象实例化工厂
+           _| ObjectWrapperFactory //实例Wrapper工厂
+           _| originObject //原始对象
+           _| ReflectFactory //发生工厂
+           _| ObjectWrapper 是对实例的扩展,形成实例以及实例对应的反射信息
+                 _| Object
+                 _| MetaClass
+                        _| ReflectFactory
+                        _| Reflector
+ 对外来说任何操作都是由MetaObject来完成.
