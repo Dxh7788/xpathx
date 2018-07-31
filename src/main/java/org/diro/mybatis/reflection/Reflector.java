@@ -136,4 +136,32 @@ public class Reflector {
     public Invoker getSetInvoker(String name) {
         return setMethods.get(name);
     }
+
+    public Invoker getGetInvoker(String name) {
+        return getMethods.get(name);
+    }
+
+    public String[] getGetterNames() {
+        return readablePropertyNames;
+    }
+
+    public String[] getSetterNames() {
+        return writeablePropertyNames;
+    }
+
+    public Class<?> getGetterType(String name) {
+        return getTypes.get(name);
+    }
+
+    public Class<?> getSetterType(String name) {
+        return setTypes.get(name);
+    }
+
+    public boolean hasGetter(String name) {
+        return getMethods.keySet().contains(name);
+    }
+
+    public boolean hasSetter(String name) {
+        return setMethods.keySet().contains(name);
+    }
 }
