@@ -1,4 +1,4 @@
-package org.diro.mybatis.mapper;
+package org.diro.mybatis.mapping;
 
 import org.diro.mybatis.datasource.DatasourceFactory;
 import org.diro.mybatis.transaction.TransactionFactory;

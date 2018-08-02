@@ -5,7 +5,7 @@ import org.diro.mybatis.data.Configuration;
 import org.diro.mybatis.data.XNode;
 import org.diro.mybatis.datasource.DatasourceFactory;
 import org.diro.mybatis.datasource.unpooled.UnpooledDatasourceFactory;
-import org.diro.mybatis.mapper.Environment;
+import org.diro.mybatis.mapping.Environment;
 import org.diro.mybatis.parse.XPathParser;
 import org.diro.mybatis.transaction.TransactionFactory;
 import org.diro.mybatis.transaction.jdbc.JdbcTransactionFactory;

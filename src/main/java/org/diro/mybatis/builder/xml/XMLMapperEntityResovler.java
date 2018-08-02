@@ -16,10 +16,10 @@ import java.util.Locale;
 public class XMLMapperEntityResovler implements EntityResolver {
     //不保留ibatis配置
     private static final String MYBATIS_CONFIG_SYSTEM = "mybatis-3-config.dtd";
-    private static final String MYBATIS_MAPPER_SYSTEM = "mybatis-3-mapper.dtd";
+    private static final String MYBATIS_MAPPER_SYSTEM = "mybatis-3-mapping.dtd";
 
     private static final String MYBATIS_CONFIG_DTD = "org/diro/mybatis/builder/xml/mybatis-3-config.dtd";
-    private static final String MYBATIS_MAPPER_DTD = "org/diro/mybatis/builder/xml/mybatis-3-mapper.dtd";
+    private static final String MYBATIS_MAPPER_DTD = "org/diro/mybatis/builder/xml/mybatis-3-mapping.dtd";
 
     @Override
     public InputSource resolveEntity(String publicId, String systemId) throws SAXException {

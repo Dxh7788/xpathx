@@ -1,6 +1,6 @@
 package org.diro.mybatis.data;
 
-import org.diro.mybatis.mapper.Environment;
+import org.diro.mybatis.mapping.Environment;
 
 /**
  *
