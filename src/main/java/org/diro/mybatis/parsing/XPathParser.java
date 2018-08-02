@@ -1,4 +1,4 @@
-package org.diro.mybatis.parse;
+package org.diro.mybatis.parsing;
 
 import org.diro.mybatis.builder.xml.XMLMapperEntityResovler;
 import org.diro.mybatis.data.XNode;

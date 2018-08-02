@@ -1,6 +1,6 @@
 package org.diro.mybatis.data;
 
-import org.diro.mybatis.parse.XPathParser;
+import org.diro.mybatis.parsing.XPathParser;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
